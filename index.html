@@ -1,0 +1,1232 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cashew's Color Spa</title>
+  <style>
+    :root {
+      --sky: #9fd8f7;
+      --sky-deep: #4f9fce;
+      --cream: #faf5ea;
+      --cream-2: #fffaf2;
+      --pink: #f7a9c4;
+      --pink-soft: rgba(247, 169, 196, 0.2);
+      --pink-deep: #ea6fa0;
+      --text: #23425b;
+      --text-soft: #526f85;
+      --line: rgba(79, 159, 206, 0.25);
+      --white: #ffffff;
+      --shadow: 0 18px 45px rgba(67, 124, 160, 0.14);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--text);
+      background-color: var(--cream);
+      background-image:
+        radial-gradient(circle at 40px 40px, rgba(247,169,196,0.28) 0 8px, transparent 9px),
+        radial-gradient(circle at 22px 55px, rgba(247,169,196,0.28) 0 5px, transparent 6px),
+        radial-gradient(circle at 58px 55px, rgba(247,169,196,0.28) 0 5px, transparent 6px),
+        radial-gradient(circle at 40px 68px, rgba(247,169,196,0.28) 0 5px, transparent 6px),
+        radial-gradient(circle at 100px 140px, rgba(247,169,196,0.18) 0 8px, transparent 9px),
+        radial-gradient(circle at 82px 155px, rgba(247,169,196,0.18) 0 5px, transparent 6px),
+        radial-gradient(circle at 118px 155px, rgba(247,169,196,0.18) 0 5px, transparent 6px),
+        radial-gradient(circle at 100px 168px, rgba(247,169,196,0.18) 0 5px, transparent 6px);
+      background-size: 180px 180px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(250, 245, 234, 0.86);
+      border-bottom: 1px solid rgba(79, 159, 206, 0.13);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.55);
+      box-shadow: 0 8px 25px rgba(79, 159, 206, 0.14);
+      padding: 4px;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.1rem;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: var(--text);
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(159, 216, 247, 0.22);
+      color: var(--sky-deep);
+    }
+
+    .hero {
+      padding: 42px 0 24px;
+    }
+
+    .hero-card {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+      background: linear-gradient(145deg, rgba(255,255,255,0.86), rgba(255,250,242,0.92));
+      border: 1px solid rgba(79, 159, 206, 0.15);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px -120px auto;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(159,216,247,0.32) 0%, rgba(159,216,247,0) 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(79,159,206,0.14);
+      font-weight: 700;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.04;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 4.6rem);
+      color: var(--sky-deep);
+    }
+
+    .hero h1 span {
+      color: var(--pink-deep);
+    }
+
+    .hero p.lead {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-soft);
+      max-width: 650px;
+      margin: 18px 0 22px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 15px 24px;
+      font-weight: 800;
+      font-size: 0.98rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(79, 159, 206, 0.16);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--pink), #ffbfd7);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, var(--sky), #caefff);
+      color: var(--text);
+    }
+
+    .feature-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .feature-pills span {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(79,159,206,0.12);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      font-weight: 700;
+    }
+
+    .hero-visual {
+      display: grid;
+      gap: 18px;
+    }
+
+    .logo-showcase,
+    .hero-photo {
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(79,159,206,0.16);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .logo-showcase img {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      aspect-ratio: 5 / 4;
+      object-fit: cover;
+      border-radius: 22px;
+    }
+
+    section {
+      padding: 18px 0 14px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--text-soft);
+      line-height: 1.7;
+      max-width: 720px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-card {
+      background: rgba(255,255,255,0.82);
+      border-radius: 26px;
+      padding: 14px;
+      border: 1px solid rgba(79,159,206,0.14);
+      box-shadow: var(--shadow);
+      transform: rotate(var(--tilt));
+    }
+
+    .gallery-card img {
+      width: 100%;
+      aspect-ratio: 4 / 4.6;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .gallery-card span {
+      display: block;
+      font-weight: 800;
+      margin-top: 10px;
+      color: var(--text);
+    }
+
+    .split-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(79,159,206,0.15);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .card p, .card li {
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    .card h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--sky-deep);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .step {
+      background: linear-gradient(180deg, rgba(159,216,247,0.18), rgba(255,255,255,0.75));
+      border-radius: 22px;
+      padding: 20px;
+      border: 1px solid rgba(79,159,206,0.12);
+    }
+
+    .step strong {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--pink-soft);
+      color: var(--pink-deep);
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .about-box img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 26px;
+      border: 4px solid rgba(255,255,255,0.86);
+      box-shadow: 0 18px 40px rgba(79, 159, 206, 0.15);
+    }
+
+    .safety-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .safety-list li {
+      background: rgba(247,169,196,0.08);
+      border: 1px dashed rgba(234,111,160,0.24);
+      border-radius: 18px;
+      padding: 14px 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .designer-layout {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .field,
+    select,
+    textarea,
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="number"] {
+      width: 100%;
+      border: 1px solid rgba(79,159,206,0.2);
+      background: rgba(255,255,255,0.92);
+      border-radius: 16px;
+      padding: 14px 14px;
+      font: inherit;
+      color: var(--text);
+      outline: none;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 14px;
+    }
+
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .dog-size-buttons,
+    .part-buttons,
+    .color-buttons,
+    .pattern-buttons {
+      display: grid;
+      gap: 12px;
+    }
+
+    .dog-size-buttons { grid-template-columns: repeat(3, 1fr); }
+    .part-buttons { grid-template-columns: repeat(2, 1fr); }
+    .color-buttons { grid-template-columns: repeat(3, 1fr); }
+    .pattern-buttons { grid-template-columns: repeat(2, 1fr); }
+
+    .toggle-btn,
+    .color-btn,
+    .pattern-btn {
+      border: 1px solid rgba(79,159,206,0.18);
+      background: rgba(255,255,255,0.95);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .toggle-btn.active,
+    .pattern-btn.active {
+      background: linear-gradient(135deg, rgba(159,216,247,0.34), rgba(255,255,255,0.94));
+      border-color: rgba(79,159,206,0.35);
+      box-shadow: 0 8px 24px rgba(79,159,206,0.12);
+    }
+
+    .color-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+
+    .color-swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 2px solid rgba(0,0,0,0.08);
+      flex: 0 0 18px;
+    }
+
+    .designer-preview-wrap {
+      position: sticky;
+      top: 92px;
+      align-self: start;
+    }
+
+    .dog-preview-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .dog-preview-meta span {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(159,216,247,0.18);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .dog-svg-wrap {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,245,234,0.88));
+      border-radius: 28px;
+      border: 1px solid rgba(79,159,206,0.16);
+      padding: 14px;
+      min-height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .submit-note {
+      background: rgba(159,216,247,0.16);
+      border: 1px solid rgba(79,159,206,0.16);
+      padding: 14px 16px;
+      border-radius: 18px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .backend-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 18px;
+    }
+
+    .mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .mini-table th,
+    .mini-table td {
+      text-align: left;
+      padding: 12px 12px;
+      border-bottom: 1px solid rgba(79,159,206,0.12);
+      font-size: 0.96rem;
+    }
+
+    .mini-table th {
+      color: var(--sky-deep);
+      background: rgba(159,216,247,0.12);
+    }
+
+    .footer {
+      padding: 26px 0 42px;
+    }
+
+    .footer-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.86), rgba(250,245,234,0.95));
+      border-radius: 28px;
+      border: 1px solid rgba(79,159,206,0.14);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .footer-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-card p {
+      margin: 0;
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-card,
+      .designer-layout,
+      .backend-grid,
+      .split-3,
+      .footer-card {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .designer-preview-wrap {
+        position: static;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-wrap,
+      .about-box,
+      .steps,
+      .grid-2,
+      .grid-3,
+      .dog-size-buttons,
+      .part-buttons,
+      .color-buttons,
+      .pattern-buttons,
+      .gallery-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .nav-wrap {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero-card,
+      .card,
+      .footer-card,
+      .logo-showcase,
+      .hero-photo {
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">
+        <img src="cashews-color-spa-logo.png" alt="Cashew's Color Spa logo" />
+        <div class="brand-text">
+          <strong>Cashew's Color Spa</strong>
+          <span>Custom color designs for dogs</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#safety">Safety &amp; Care</a>
+        <a href="#design">Design Your Dog</a>
+        <a href="#backend">Owner Backend</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-card">
+        <div>
+          <div class="eyebrow">🐾 Boutique dog color styling with spa-level care</div>
+          <h1>Cashew's <span>Color Spa</span></h1>
+          <p class="lead">
+            Creative, safe color designs for dogs with personality. Customers can explore the look they want,
+            submit a request directly to your email, and you stay fully in control of booking each appointment yourself.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#design">Design Your Dog</a>
+            <a class="btn btn-secondary" href="#gallery">View Gallery</a>
+          </div>
+
+          <div class="feature-pills">
+            <span>Pet-safe dyes only</span>
+            <span>No harsh chemicals</span>
+            <span>Manual request review</span>
+            <span>Private owner-only scheduling</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="logo-showcase">
+            <img src="cashews-color-spa-logo.png" alt="Cashew's Color Spa transparent logo" />
+          </div>
+          <div class="hero-photo">
+            <img src="cashew-hero.jpg" alt="Cashew with pink ears, tail, and paws" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2 style="font-size:2.5rem;color:var(--sky-deep);">Photo Gallery</h2>
+            <p>
+              Use this collage section to show off her work right away. Replace these image file names with your real dog dye photos.
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-card" style="--tilt:-4deg;">
+            <img src="cashew-gallery-1.jpg" alt="Dog dye style example 1" />
+            <span>Pink ears + paws</span>
+          </div>
+          <div class="gallery-card" style="--tilt:2deg;">
+            <img src="cashew-gallery-2.jpg" alt="Dog dye style example 2" />
+            <span>Playful pink ombré</span>
+          </div>
+          <div class="gallery-card" style="--tilt:-2deg;">
+            <img src="cashew-gallery-3.jpg" alt="Dog dye style example 3" />
+            <span>Signature Cashew look</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container split-3">
+        <div class="card">
+          <h3>How It Works</h3>
+          <p>Keep the customer side simple and cute, while keeping the business side controlled and organized.</p>
+          <div class="steps">
+            <div class="step">
+              <strong>1</strong>
+              <div style="font-weight:800;margin-bottom:8px;">Build the look</div>
+              <div>Choose dog size, body areas, colors, and patterns.</div>
+            </div>
+            <div class="step">
+              <strong>2</strong>
+              <div style="font-weight:800;margin-bottom:8px;">Submit request</div>
+              <div>The request is emailed directly to you for review.</div>
+            </div>
+            <div class="step">
+              <strong>3</strong>
+              <div style="font-weight:800;margin-bottom:8px;">You confirm</div>
+              <div>You manually place appointments into your private calendar sheet.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="about">
+          <div class="about-box">
+            <img src="cashew-about.jpg" alt="Cashew dog portrait" />
+            <div>
+              <h3>Meet the Owner</h3>
+              <p>
+                Hi, I'm the heart behind Cashew's Color Spa. I love helping pups show off their personality with fun, stylish color designs in a calm and caring environment.
+              </p>
+              <p>
+                Every appointment is reviewed personally so each dog gets a look that fits their coat, comfort, and vibe.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="safety">
+          <h3>Safety &amp; Care</h3>
+          <ul class="safety-list">
+            <li>Pet-safe dyes only</li>
+            <li>No harsh chemicals</li>
+            <li>Dogs must be vaccinated</li>
+            <li>Calm, controlled environment</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="design">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2 style="font-size:2.5rem;color:var(--sky-deep);">Design Your Dog</h2>
+            <p>
+              Customers can preview a concept before they submit. The final request gets sent to your email only. It does not auto-book or write to Google Sheets.
+            </p>
+          </div>
+        </div>
+
+        <div class="designer-layout">
+          <div class="card">
+            <div style="margin-bottom:18px;">
+              <label>Choose dog size</label>
+              <div class="dog-size-buttons">
+                <button class="toggle-btn active size-btn" data-size="small">Small Dog</button>
+                <button class="toggle-btn size-btn" data-size="medium">Medium Dog</button>
+                <button class="toggle-btn size-btn" data-size="large">Large Dog</button>
+              </div>
+            </div>
+
+            <div style="margin-bottom:18px;">
+              <label>Select body area</label>
+              <div class="part-buttons">
+                <button class="toggle-btn active part-btn" data-part="ears">Ears</button>
+                <button class="toggle-btn part-btn" data-part="tail">Tail</button>
+                <button class="toggle-btn part-btn" data-part="frontLeftPaw">Front Left Paw</button>
+                <button class="toggle-btn part-btn" data-part="frontRightPaw">Front Right Paw</button>
+                <button class="toggle-btn part-btn" data-part="backLeftPaw">Back Left Paw</button>
+                <button class="toggle-btn part-btn" data-part="backRightPaw">Back Right Paw</button>
+                <button class="toggle-btn part-btn" data-part="body">Body</button>
+              </div>
+            </div>
+
+            <div style="margin-bottom:18px;">
+              <label>Choose color</label>
+              <div class="color-buttons">
+                <button class="color-btn" data-color="#ff77b7"><span class="color-swatch" style="background:#ff77b7;"></span>Pink</button>
+                <button class="color-btn" data-color="#ff5fa2"><span class="color-swatch" style="background:#ff5fa2;"></span>Hot Pink</button>
+                <button class="color-btn" data-color="#c779ff"><span class="color-swatch" style="background:#c779ff;"></span>Purple</button>
+                <button class="color-btn" data-color="#83d3ff"><span class="color-swatch" style="background:#83d3ff;"></span>Sky Blue</button>
+                <button class="color-btn" data-color="#9bf0d1"><span class="color-swatch" style="background:#9bf0d1;"></span>Mint</button>
+                <button class="color-btn" data-color="#ffd36e"><span class="color-swatch" style="background:#ffd36e;"></span>Sunshine</button>
+              </div>
+            </div>
+
+            <div style="margin-bottom:24px;">
+              <label>Choose body pattern</label>
+              <div class="pattern-buttons">
+                <button class="pattern-btn active" data-pattern="solid">Solid Color</button>
+                <button class="pattern-btn" data-pattern="zebra">Zebra</button>
+                <button class="pattern-btn" data-pattern="cheetah">Cheetah</button>
+                <button class="pattern-btn" data-pattern="tiger">Tiger</button>
+                <button class="pattern-btn" data-pattern="polka">Polka Dots</button>
+                <button class="pattern-btn" data-pattern="stars">Stars</button>
+              </div>
+            </div>
+
+            <form id="designForm" action="https://formsubmit.co/YOUR-EMAIL-HERE" method="POST">
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_subject" value="New Cashew's Color Spa Design Request" />
+              <input type="hidden" name="selected_size" id="selectedSizeInput" value="small" />
+              <input type="hidden" name="selected_colors" id="selectedColorsInput" value="Pink" />
+              <input type="hidden" name="selected_parts" id="selectedPartsInput" value="ears" />
+              <input type="hidden" name="selected_pattern" id="selectedPatternInput" value="solid" />
+
+              <div class="grid-2" style="margin-bottom:14px;">
+                <div>
+                  <label for="ownerName">Owner Name</label>
+                  <input type="text" id="ownerName" name="owner_name" required />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+              </div>
+
+              <div class="grid-2" style="margin-bottom:14px;">
+                <div>
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" required />
+                </div>
+                <div>
+                  <label for="dogName">Dog Name</label>
+                  <input type="text" id="dogName" name="dog_name" required />
+                </div>
+              </div>
+
+              <div class="grid-3" style="margin-bottom:14px;">
+                <div>
+                  <label for="breed">Breed</label>
+                  <input type="text" id="breed" name="breed" required />
+                </div>
+                <div>
+                  <label for="lbs">Weight (lbs)</label>
+                  <input type="number" id="lbs" name="weight_lbs" min="1" required />
+                </div>
+                <div>
+                  <label for="sizeManual">Size</label>
+                  <select id="sizeManual" name="size_manual">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid-3" style="margin-bottom:14px;">
+                <div>
+                  <label for="vaccinations">Have they had vaccinations?</label>
+                  <select id="vaccinations" name="vaccinations" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unsure">Unsure</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="date1">Desired Date 1</label>
+                  <input type="date" id="date1" name="desired_date_1" required />
+                </div>
+                <div>
+                  <label for="date2">Desired Date 2</label>
+                  <input type="date" id="date2" name="desired_date_2" />
+                </div>
+              </div>
+
+              <div style="margin-bottom:14px;">
+                <label for="notes">Extra Notes</label>
+                <textarea id="notes" name="notes" placeholder="Anything helpful about the design, event, dog temperament, or special requests"></textarea>
+              </div>
+
+              <div class="submit-note" style="margin-bottom:16px;">
+                All requests are reviewed and confirmed manually to ensure the best experience for your pup.
+                When a customer hits submit, this request goes to your email only.
+              </div>
+
+              <button class="btn btn-primary" type="submit" style="width:100%;">Submit Design Request</button>
+            </form>
+          </div>
+
+          <div class="designer-preview-wrap">
+            <div class="card">
+              <div class="dog-preview-meta">
+                <span id="sizeLabel">Small Dog</span>
+                <span id="partLabel">Editing: Ears</span>
+                <span id="patternLabel">Pattern: Solid Color</span>
+              </div>
+
+              <div class="dog-svg-wrap">
+                <svg id="dogSvg" viewBox="0 0 700 500" width="100%" aria-label="Dog color preview">
+                  <defs>
+                    <pattern id="zebraPattern" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+                      <rect width="20" height="20" fill="#f7f1e3"></rect>
+                      <rect width="6" height="20" fill="#1c2f41"></rect>
+                    </pattern>
+                    <pattern id="cheetahPattern" width="34" height="34" patternUnits="userSpaceOnUse">
+                      <rect width="34" height="34" fill="#f2c27d"></rect>
+                      <circle cx="8" cy="10" r="3.4" fill="#6f4c2e"></circle>
+                      <circle cx="20" cy="9" r="2.6" fill="#6f4c2e"></circle>
+                      <circle cx="14" cy="24" r="3.1" fill="#6f4c2e"></circle>
+                      <circle cx="27" cy="23" r="2.7" fill="#6f4c2e"></circle>
+                    </pattern>
+                    <pattern id="tigerPattern" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(16)">
+                      <rect width="30" height="30" fill="#ffb45b"></rect>
+                      <path d="M6 0 L12 30 M18 0 L23 30" stroke="#51321d" stroke-width="4"></path>
+                    </pattern>
+                    <pattern id="polkaPattern" width="26" height="26" patternUnits="userSpaceOnUse">
+                      <rect width="26" height="26" fill="#ffc7dd"></rect>
+                      <circle cx="7" cy="7" r="3" fill="#ffffff"></circle>
+                      <circle cx="18" cy="18" r="3" fill="#ffffff"></circle>
+                    </pattern>
+                    <pattern id="starsPattern" width="36" height="36" patternUnits="userSpaceOnUse">
+                      <rect width="36" height="36" fill="#bfe8ff"></rect>
+                      <path d="M18 6 L20.8 14 L29 14 L22.2 18.5 L25 27 L18 22 L11 27 L13.8 18.5 L7 14 L15.2 14 Z" fill="#ffffff"></path>
+                    </pattern>
+                  </defs>
+
+                  <g id="dogGroup" transform="translate(110,60) scale(0.84)">
+                    <ellipse id="body" cx="260" cy="220" rx="145" ry="90" fill="#fdfdfd" stroke="#264761" stroke-width="4"></ellipse>
+                    <circle id="head" cx="450" cy="165" r="63" fill="#fdfdfd" stroke="#264761" stroke-width="4"></circle>
+                    <ellipse id="ears" cx="400" cy="155" rx="25" ry="64" fill="#ff77b7" stroke="#264761" stroke-width="4" transform="rotate(-10 400 155)"></ellipse>
+                    <ellipse id="ears2" cx="498" cy="155" rx="25" ry="64" fill="#ff77b7" stroke="#264761" stroke-width="4" transform="rotate(12 498 155)"></ellipse>
+                    <rect id="frontLeftPaw" x="188" y="286" width="34" height="110" rx="16" fill="#ff77b7" stroke="#264761" stroke-width="4"></rect>
+                    <rect id="frontRightPaw" x="246" y="292" width="34" height="104" rx="16" fill="#ff77b7" stroke="#264761" stroke-width="4"></rect>
+                    <rect id="backLeftPaw" x="334" y="292" width="34" height="104" rx="16" fill="#ff77b7" stroke="#264761" stroke-width="4"></rect>
+                    <rect id="backRightPaw" x="392" y="286" width="34" height="110" rx="16" fill="#ff77b7" stroke="#264761" stroke-width="4"></rect>
+                    <path id="tail" d="M108 192 Q60 138 84 88" fill="none" stroke="#ff77b7" stroke-width="30" stroke-linecap="round"></path>
+                    <path d="M108 192 Q60 138 84 88" fill="none" stroke="#264761" stroke-width="4" stroke-linecap="round"></path>
+                    <circle cx="432" cy="160" r="6" fill="#1b2531"></circle>
+                    <circle cx="472" cy="160" r="6" fill="#1b2531"></circle>
+                    <ellipse cx="452" cy="182" rx="16" ry="11" fill="#2a3948"></ellipse>
+                    <path d="M444 195 Q452 202 460 195" fill="none" stroke="#2a3948" stroke-width="3" stroke-linecap="round"></path>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="backend">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h2 style="font-size:2.5rem;color:var(--sky-deep);">Owner Backend Plan</h2>
+            <p>
+              This part is not public. The customer form does not write to Google Sheets. You use your Google Sheet privately to enter appointments yourself and populate a calendar tab only you can see.
+            </p>
+          </div>
+        </div>
+
+        <div class="backend-grid">
+          <div class="card">
+            <h3>Private Google Sheet Tabs</h3>
+            <ul class="safety-list" style="margin-top:14px;">
+              <li><strong>Tab 1:</strong> Appointments Entry</li>
+              <li><strong>Tab 2:</strong> Calendar View</li>
+              <li><strong>Tab 3:</strong> Client Notes</li>
+            </ul>
+            <p style="margin-top:16px;">
+              You manually type in the dog name, owner, date, time, service, deposit, and notes. Then formulas populate the calendar-style sheet.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Suggested Columns</h3>
+            <table class="mini-table">
+              <thead>
+                <tr>
+                  <th>Column</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Dog Name</td><td>Appointment identifier</td></tr>
+                <tr><td>Owner Name</td><td>Client reference</td></tr>
+                <tr><td>Phone</td><td>Quick contact</td></tr>
+                <tr><td>Date</td><td>Scheduled date</td></tr>
+                <tr><td>Time</td><td>Scheduled time</td></tr>
+                <tr><td>Service</td><td>Requested color look</td></tr>
+                <tr><td>Deposit</td><td>Paid / unpaid</td></tr>
+                <tr><td>Vaccinations</td><td>Safety check</td></tr>
+                <tr><td>Notes</td><td>Private owner notes</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-card">
+      <div>
+        <h3>Cashew's Color Spa</h3>
+        <p>
+          Custom color designs for dogs with personality. Boutique vibes, soft visuals, and a customer request process that keeps you in control.
+        </p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>
+          Email: your-email@example.com<br />
+          Instagram: @cashewscolorspa<br />
+          Location: Your city here
+        </p>
+      </div>
+      <div>
+        <h3>Files to add</h3>
+        <p>
+          cashews-color-spa-logo.png<br />
+          cashew-hero.jpg<br />
+          cashew-about.jpg<br />
+          cashew-gallery-1.jpg<br />
+          cashew-gallery-2.jpg<br />
+          cashew-gallery-3.jpg
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const state = {
+      size: 'small',
+      part: 'ears',
+      pattern: 'solid',
+      colors: {
+        ears: '#ff77b7',
+        tail: '#ff77b7',
+        frontLeftPaw: '#ff77b7',
+        frontRightPaw: '#ff77b7',
+        backLeftPaw: '#ff77b7',
+        backRightPaw: '#ff77b7',
+        body: '#fdfdfd'
+      }
+    };
+
+    const sizeBtns = document.querySelectorAll('.size-btn');
+    const partBtns = document.querySelectorAll('.part-btn');
+    const colorBtns = document.querySelectorAll('.color-btn');
+    const patternBtns = document.querySelectorAll('.pattern-btn');
+    const body = document.getElementById('body');
+    const ears = document.getElementById('ears');
+    const ears2 = document.getElementById('ears2');
+    const tail = document.getElementById('tail');
+    const frontLeftPaw = document.getElementById('frontLeftPaw');
+    const frontRightPaw = document.getElementById('frontRightPaw');
+    const backLeftPaw = document.getElementById('backLeftPaw');
+    const backRightPaw = document.getElementById('backRightPaw');
+    const dogGroup = document.getElementById('dogGroup');
+    const sizeLabel = document.getElementById('sizeLabel');
+    const partLabel = document.getElementById('partLabel');
+    const patternLabel = document.getElementById('patternLabel');
+    const selectedSizeInput = document.getElementById('selectedSizeInput');
+    const selectedColorsInput = document.getElementById('selectedColorsInput');
+    const selectedPartsInput = document.getElementById('selectedPartsInput');
+    const selectedPatternInput = document.getElementById('selectedPatternInput');
+    const sizeManual = document.getElementById('sizeManual');
+
+    function setActive(buttons, clicked) {
+      buttons.forEach(btn => btn.classList.remove('active'));
+      clicked.classList.add('active');
+    }
+
+    function updateHiddenFields() {
+      selectedSizeInput.value = state.size;
+      selectedColorsInput.value = state.colors[state.part] || '';
+      selectedPartsInput.value = state.part;
+      selectedPatternInput.value = state.pattern;
+    }
+
+    function updatePreview() {
+      ears.setAttribute('fill', state.colors.ears);
+      ears2.setAttribute('fill', state.colors.ears);
+      tail.setAttribute('stroke', state.colors.tail);
+      frontLeftPaw.setAttribute('fill', state.colors.frontLeftPaw);
+      frontRightPaw.setAttribute('fill', state.colors.frontRightPaw);
+      backLeftPaw.setAttribute('fill', state.colors.backLeftPaw);
+      backRightPaw.setAttribute('fill', state.colors.backRightPaw);
+
+      if (state.pattern === 'solid') {
+        body.setAttribute('fill', state.colors.body);
+      }
+      if (state.pattern === 'zebra') body.setAttribute('fill', 'url(#zebraPattern)');
+      if (state.pattern === 'cheetah') body.setAttribute('fill', 'url(#cheetahPattern)');
+      if (state.pattern === 'tiger') body.setAttribute('fill', 'url(#tigerPattern)');
+      if (state.pattern === 'polka') body.setAttribute('fill', 'url(#polkaPattern)');
+      if (state.pattern === 'stars') body.setAttribute('fill', 'url(#starsPattern)');
+
+      let scale = 0.84;
+      if (state.size === 'medium') scale = 0.96;
+      if (state.size === 'large') scale = 1.08;
+      dogGroup.setAttribute('transform', `translate(110,60) scale(${scale})`);
+
+      sizeLabel.textContent = state.size.charAt(0).toUpperCase() + state.size.slice(1) + ' Dog';
+      const prettyPart = state.part
+        .replace('frontLeftPaw', 'Front Left Paw')
+        .replace('frontRightPaw', 'Front Right Paw')
+        .replace('backLeftPaw', 'Back Left Paw')
+        .replace('backRightPaw', 'Back Right Paw')
+        .replace('ears', 'Ears')
+        .replace('tail', 'Tail')
+        .replace('body', 'Body');
+      partLabel.textContent = 'Editing: ' + prettyPart;
+
+      const prettyPatternMap = {
+        solid: 'Solid Color',
+        zebra: 'Zebra',
+        cheetah: 'Cheetah',
+        tiger: 'Tiger',
+        polka: 'Polka Dots',
+        stars: 'Stars'
+      };
+      patternLabel.textContent = 'Pattern: ' + prettyPatternMap[state.pattern];
+      updateHiddenFields();
+    }
+
+    sizeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.size = btn.dataset.size;
+        setActive(sizeBtns, btn);
+        sizeManual.value = state.size;
+        updatePreview();
+      });
+    });
+
+    sizeManual.addEventListener('change', () => {
+      state.size = sizeManual.value;
+      sizeBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.size === state.size);
+      });
+      updatePreview();
+    });
+
+    partBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.part = btn.dataset.part;
+        setActive(partBtns, btn);
+        updatePreview();
+      });
+    });
+
+    colorBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const color = btn.dataset.color;
+        if (state.part === 'ears') state.colors.ears = color;
+        if (state.part === 'tail') state.colors.tail = color;
+        if (state.part === 'frontLeftPaw') state.colors.frontLeftPaw = color;
+        if (state.part === 'frontRightPaw') state.colors.frontRightPaw = color;
+        if (state.part === 'backLeftPaw') state.colors.backLeftPaw = color;
+        if (state.part === 'backRightPaw') state.colors.backRightPaw = color;
+        if (state.part === 'body') state.colors.body = color;
+        selectedColorsInput.value = color;
+        updatePreview();
+      });
+    });
+
+    patternBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        state.pattern = btn.dataset.pattern;
+        setActive(patternBtns, btn);
+        updatePreview();
+      });
+    });
+
+    updatePreview();
+  </script>
+</body>
+</html>
