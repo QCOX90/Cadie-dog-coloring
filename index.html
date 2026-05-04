@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -23,13 +23,9 @@
       --radius-md: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -97,9 +93,7 @@
       padding: 4px;
     }
 
-    .brand-text {
-      min-width: 0;
-    }
+    .brand-text { min-width: 0; }
 
     .brand-text strong {
       display: block;
@@ -136,9 +130,7 @@
       color: var(--sky-deep);
     }
 
-    .hero {
-      padding: 42px 0 24px;
-    }
+    .hero { padding: 42px 0 24px; }
 
     .hero-card {
       display: grid;
@@ -188,9 +180,7 @@
       color: var(--sky-deep);
     }
 
-    .hero h1 span {
-      color: var(--pink-deep);
-    }
+    .hero h1 span { color: var(--pink-deep); }
 
     .hero p.lead {
       font-size: 1.1rem;
@@ -281,9 +271,7 @@
       border-radius: 22px;
     }
 
-    section {
-      padding: 18px 0 14px;
-    }
+    section { padding: 18px 0 14px; }
 
     .section-title {
       display: flex;
@@ -539,6 +527,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+    }
+
+    .dog-svg-wrap svg {
+      max-width: 100%;
+      height: auto;
     }
 
     .submit-note {
@@ -577,9 +571,7 @@
       background: rgba(159,216,247,0.12);
     }
 
-    .footer {
-      padding: 26px 0 42px;
-    }
+    .footer { padding: 26px 0 42px; }
 
     .footer-card {
       background: linear-gradient(145deg, rgba(255,255,255,0.86), rgba(250,245,234,0.95));
@@ -603,9 +595,7 @@
       line-height: 1.75;
     }
 
-    .hidden {
-      display: none !important;
-    }
+    .hidden { display: none !important; }
 
     @media (max-width: 1080px) {
       .hero-card,
@@ -616,13 +606,9 @@
         grid-template-columns: 1fr;
       }
 
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 
-      .designer-preview-wrap {
-        position: static;
-      }
+      .designer-preview-wrap { position: static; }
     }
 
     @media (max-width: 760px) {
@@ -644,9 +630,7 @@
         align-items: stretch;
       }
 
-      .nav-links {
-        justify-content: center;
-      }
+      .nav-links { justify-content: center; }
 
       .hero-card,
       .card,
@@ -656,9 +640,7 @@
         padding: 18px;
       }
 
-      h1 {
-        font-size: 2.5rem;
-      }
+      h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
@@ -815,46 +797,46 @@
             <div style="margin-bottom:18px;">
               <label>Choose dog size</label>
               <div class="dog-size-buttons">
-                <button class="toggle-btn active size-btn" data-size="small">Small Dog</button>
-                <button class="toggle-btn size-btn" data-size="medium">Medium Dog</button>
-                <button class="toggle-btn size-btn" data-size="large">Large Dog</button>
+                <button class="toggle-btn active size-btn" type="button" data-size="small">Small Dog</button>
+                <button class="toggle-btn size-btn" type="button" data-size="medium">Medium Dog</button>
+                <button class="toggle-btn size-btn" type="button" data-size="large">Large Dog</button>
               </div>
             </div>
 
             <div style="margin-bottom:18px;">
               <label>Select body area</label>
               <div class="part-buttons">
-                <button class="toggle-btn active part-btn" data-part="ears">Ears</button>
-                <button class="toggle-btn part-btn" data-part="tail">Tail</button>
-                <button class="toggle-btn part-btn" data-part="frontLeftPaw">Front Left Paw</button>
-                <button class="toggle-btn part-btn" data-part="frontRightPaw">Front Right Paw</button>
-                <button class="toggle-btn part-btn" data-part="backLeftPaw">Back Left Paw</button>
-                <button class="toggle-btn part-btn" data-part="backRightPaw">Back Right Paw</button>
-                <button class="toggle-btn part-btn" data-part="body">Body</button>
+                <button class="toggle-btn active part-btn" type="button" data-part="ears">Ears</button>
+                <button class="toggle-btn part-btn" type="button" data-part="tail">Tail</button>
+                <button class="toggle-btn part-btn" type="button" data-part="frontLeftPaw">Front Left Paw</button>
+                <button class="toggle-btn part-btn" type="button" data-part="frontRightPaw">Front Right Paw</button>
+                <button class="toggle-btn part-btn" type="button" data-part="backLeftPaw">Back Left Paw</button>
+                <button class="toggle-btn part-btn" type="button" data-part="backRightPaw">Back Right Paw</button>
+                <button class="toggle-btn part-btn" type="button" data-part="body">Body</button>
               </div>
             </div>
 
             <div style="margin-bottom:18px;">
               <label>Choose color</label>
               <div class="color-buttons">
-                <button class="color-btn" data-color="#ff77b7"><span class="color-swatch" style="background:#ff77b7;"></span>Pink</button>
-                <button class="color-btn" data-color="#ff5fa2"><span class="color-swatch" style="background:#ff5fa2;"></span>Hot Pink</button>
-                <button class="color-btn" data-color="#c779ff"><span class="color-swatch" style="background:#c779ff;"></span>Purple</button>
-                <button class="color-btn" data-color="#83d3ff"><span class="color-swatch" style="background:#83d3ff;"></span>Sky Blue</button>
-                <button class="color-btn" data-color="#9bf0d1"><span class="color-swatch" style="background:#9bf0d1;"></span>Mint</button>
-                <button class="color-btn" data-color="#ffd36e"><span class="color-swatch" style="background:#ffd36e;"></span>Sunshine</button>
+                <button class="color-btn" type="button" data-color="#ff77b7"><span class="color-swatch" style="background:#ff77b7;"></span>Pink</button>
+                <button class="color-btn" type="button" data-color="#ff5fa2"><span class="color-swatch" style="background:#ff5fa2;"></span>Hot Pink</button>
+                <button class="color-btn" type="button" data-color="#c779ff"><span class="color-swatch" style="background:#c779ff;"></span>Purple</button>
+                <button class="color-btn" type="button" data-color="#83d3ff"><span class="color-swatch" style="background:#83d3ff;"></span>Sky Blue</button>
+                <button class="color-btn" type="button" data-color="#9bf0d1"><span class="color-swatch" style="background:#9bf0d1;"></span>Mint</button>
+                <button class="color-btn" type="button" data-color="#ffd36e"><span class="color-swatch" style="background:#ffd36e;"></span>Sunshine</button>
               </div>
             </div>
 
             <div style="margin-bottom:24px;">
               <label>Choose body pattern</label>
               <div class="pattern-buttons">
-                <button class="pattern-btn active" data-pattern="solid">Solid Color</button>
-                <button class="pattern-btn" data-pattern="zebra">Zebra</button>
-                <button class="pattern-btn" data-pattern="cheetah">Cheetah</button>
-                <button class="pattern-btn" data-pattern="tiger">Tiger</button>
-                <button class="pattern-btn" data-pattern="polka">Polka Dots</button>
-                <button class="pattern-btn" data-pattern="stars">Stars</button>
+                <button class="pattern-btn active" type="button" data-pattern="solid">Solid Color</button>
+                <button class="pattern-btn" type="button" data-pattern="zebra">Zebra</button>
+                <button class="pattern-btn" type="button" data-pattern="cheetah">Cheetah</button>
+                <button class="pattern-btn" type="button" data-pattern="tiger">Tiger</button>
+                <button class="pattern-btn" type="button" data-pattern="polka">Polka Dots</button>
+                <button class="pattern-btn" type="button" data-pattern="stars">Stars</button>
               </div>
             </div>
 
@@ -949,49 +931,262 @@
               </div>
 
               <div class="dog-svg-wrap">
-                <svg id="dogSvg" viewBox="0 0 700 500" width="100%" aria-label="Dog color preview">
+                <svg id="dogSvg" viewBox="0 0 900 520" width="100%" aria-label="Dog color preview">
                   <defs>
-                    <pattern id="zebraPattern" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
-                      <rect width="20" height="20" fill="#f7f1e3"></rect>
-                      <rect width="6" height="20" fill="#1c2f41"></rect>
+                    <pattern id="zebraPattern" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+                      <rect width="24" height="24" fill="#ffffff"></rect>
+                      <rect width="7" height="24" fill="#1c2f41"></rect>
                     </pattern>
-                    <pattern id="cheetahPattern" width="34" height="34" patternUnits="userSpaceOnUse">
-                      <rect width="34" height="34" fill="#f2c27d"></rect>
-                      <circle cx="8" cy="10" r="3.4" fill="#6f4c2e"></circle>
-                      <circle cx="20" cy="9" r="2.6" fill="#6f4c2e"></circle>
-                      <circle cx="14" cy="24" r="3.1" fill="#6f4c2e"></circle>
-                      <circle cx="27" cy="23" r="2.7" fill="#6f4c2e"></circle>
+
+                    <pattern id="cheetahPattern" width="38" height="38" patternUnits="userSpaceOnUse">
+                      <rect width="38" height="38" fill="#f2c27d"></rect>
+                      <circle cx="9" cy="11" r="3.5" fill="#6f4c2e"></circle>
+                      <circle cx="23" cy="9" r="2.8" fill="#6f4c2e"></circle>
+                      <circle cx="16" cy="27" r="3.2" fill="#6f4c2e"></circle>
+                      <circle cx="30" cy="25" r="2.7" fill="#6f4c2e"></circle>
                     </pattern>
-                    <pattern id="tigerPattern" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(16)">
-                      <rect width="30" height="30" fill="#ffb45b"></rect>
-                      <path d="M6 0 L12 30 M18 0 L23 30" stroke="#51321d" stroke-width="4"></path>
+
+                    <pattern id="tigerPattern" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(16)">
+                      <rect width="34" height="34" fill="#ffb45b"></rect>
+                      <path d="M7 0 L13 34 M21 0 L27 34" stroke="#51321d" stroke-width="4"></path>
                     </pattern>
-                    <pattern id="polkaPattern" width="26" height="26" patternUnits="userSpaceOnUse">
-                      <rect width="26" height="26" fill="#ffc7dd"></rect>
-                      <circle cx="7" cy="7" r="3" fill="#ffffff"></circle>
-                      <circle cx="18" cy="18" r="3" fill="#ffffff"></circle>
+
+                    <pattern id="polkaPattern" width="30" height="30" patternUnits="userSpaceOnUse">
+                      <rect width="30" height="30" fill="#ffc7dd"></rect>
+                      <circle cx="8" cy="8" r="3.5" fill="#ffffff"></circle>
+                      <circle cx="21" cy="21" r="3.5" fill="#ffffff"></circle>
                     </pattern>
-                    <pattern id="starsPattern" width="36" height="36" patternUnits="userSpaceOnUse">
-                      <rect width="36" height="36" fill="#bfe8ff"></rect>
-                      <path d="M18 6 L20.8 14 L29 14 L22.2 18.5 L25 27 L18 22 L11 27 L13.8 18.5 L7 14 L15.2 14 Z" fill="#ffffff"></path>
+
+                    <pattern id="starsPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <rect width="40" height="40" fill="#bfe8ff"></rect>
+                      <path d="M20 7 L23 16 L32 16 L24.5 21 L27.5 31 L20 25 L12.5 31 L15.5 21 L8 16 L17 16 Z" fill="#ffffff"></path>
                     </pattern>
                   </defs>
 
-                  <g id="dogGroup" transform="translate(110,60) scale(0.84)">
-                    <ellipse id="body" cx="260" cy="220" rx="145" ry="90" fill="#fdfdfd" stroke="#264761" stroke-width="4"></ellipse>
-                    <circle id="head" cx="450" cy="165" r="63" fill="#fdfdfd" stroke="#264761" stroke-width="4"></circle>
-                    <ellipse id="ears" cx="400" cy="155" rx="25" ry="64" fill="#ff77b7" stroke="#264761" stroke-width="4" transform="rotate(-10 400 155)"></ellipse>
-                    <ellipse id="ears2" cx="498" cy="155" rx="25" ry="64" fill="#ff77b7" stroke="#264761" stroke-width="4" transform="rotate(12 498 155)"></ellipse>
-                    <rect id="frontLeftPaw" x="188" y="286" width="34" height="110" rx="16" fill="#ff77b7" stroke="#264761" stroke-width="4"></rect>
-                    <rect id="frontRightPaw" x="246" y="292" width="34" height="104" rx="16" fill="#ff77b7" stroke="#264761" stroke-width="4"></rect>
-                    <rect id="backLeftPaw" x="334" y="292" width="34" height="104" rx="16" fill="#ff77b7" stroke="#264761" stroke-width="4"></rect>
-                    <rect id="backRightPaw" x="392" y="286" width="34" height="110" rx="16" fill="#ff77b7" stroke="#264761" stroke-width="4"></rect>
-                    <path id="tail" d="M108 192 Q60 138 84 88" fill="none" stroke="#ff77b7" stroke-width="30" stroke-linecap="round"></path>
-                    <path d="M108 192 Q60 138 84 88" fill="none" stroke="#264761" stroke-width="4" stroke-linecap="round"></path>
-                    <circle cx="432" cy="160" r="6" fill="#1b2531"></circle>
-                    <circle cx="472" cy="160" r="6" fill="#1b2531"></circle>
-                    <ellipse cx="452" cy="182" rx="16" ry="11" fill="#2a3948"></ellipse>
-                    <path d="M444 195 Q452 202 460 195" fill="none" stroke="#2a3948" stroke-width="3" stroke-linecap="round"></path>
+                  <g id="dogGroup" transform="translate(35,45) scale(0.92)">
+                    <!-- Color areas -->
+                    <path id="body"
+                      d="M210 160
+                         C290 125, 410 128, 500 155
+                         C555 172, 610 170, 665 160
+                         C700 154, 735 160, 760 188
+                         C790 222, 792 282, 766 320
+                         C742 356, 737 396, 748 430
+                         L708 430
+                         C694 390, 695 352, 713 320
+                         C678 330, 638 324, 604 302
+                         C576 284, 552 262, 528 236
+                         C485 265, 430 286, 365 298
+                         C325 306, 285 308, 248 300
+                         C250 340, 252 382, 244 430
+                         L204 430
+                         C211 382, 210 336, 202 294
+                         C168 280, 144 256, 132 226
+                         C120 196, 146 172, 210 160 Z"
+                      fill="#ffffff"
+                      stroke="none"></path>
+
+                    <path id="tail"
+                      d="M746 174
+                         C806 160, 842 112, 852 54
+                         C861 95, 844 153, 804 190
+                         C784 208, 761 219, 736 224"
+                      fill="none"
+                      stroke="#ff77b7"
+                      stroke-width="28"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+
+                    <path id="ears"
+                      d="M158 58
+                         C190 32, 238 28, 267 58
+                         C250 92, 238 126, 234 168
+                         C190 156, 164 118, 158 58 Z"
+                      fill="#ff77b7"
+                      stroke="none"></path>
+
+                    <path id="ears2"
+                      d="M120 52
+                         C91 63, 72 90, 58 122
+                         C86 116, 110 92, 132 61 Z"
+                      fill="#ff77b7"
+                      stroke="none"></path>
+
+                    <path id="frontLeftPaw"
+                      d="M202 292
+                         C208 332, 211 376, 204 430
+                         L162 430
+                         C171 400, 172 372, 164 338
+                         C158 313, 150 292, 142 268
+                         C160 280, 180 288, 202 292 Z"
+                      fill="#ff77b7"
+                      stroke="none"></path>
+
+                    <path id="frontRightPaw"
+                      d="M286 300
+                         C285 342, 284 385, 276 430
+                         L236 430
+                         C244 383, 244 336, 238 298
+                         C254 301, 270 302, 286 300 Z"
+                      fill="#ff77b7"
+                      stroke="none"></path>
+
+                    <path id="backLeftPaw"
+                      d="M600 300
+                         C618 330, 645 350, 672 372
+                         C694 390, 700 410, 692 430
+                         L650 430
+                         C656 414, 651 400, 634 386
+                         C603 359, 574 334, 552 285
+                         C566 291, 583 297, 600 300 Z"
+                      fill="#ff77b7"
+                      stroke="none"></path>
+
+                    <path id="backRightPaw"
+                      d="M724 316
+                         C708 354, 708 388, 722 430
+                         L680 430
+                         C666 388, 672 346, 696 310
+                         C706 312, 716 314, 724 316 Z"
+                      fill="#ff77b7"
+                      stroke="none"></path>
+
+                    <!-- Main black outline -->
+                    <path
+                      d="M132 226
+                         C118 198, 142 174, 210 160
+                         C290 125, 410 128, 500 155
+                         C555 172, 610 170, 665 160
+                         C700 154, 735 160, 760 188
+                         C790 222, 792 282, 766 320
+                         C742 356, 737 396, 748 430
+                         L708 430
+                         C694 390, 695 352, 713 320
+                         C678 330, 638 324, 604 302
+                         C576 284, 552 262, 528 236
+                         C485 265, 430 286, 365 298
+                         C325 306, 285 308, 248 300
+                         C250 340, 252 382, 244 430
+                         L204 430
+                         C211 382, 210 336, 202 294
+                         C168 280, 144 256, 132 226 Z"
+                      fill="none"
+                      stroke="#111111"
+                      stroke-width="7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+
+                    <!-- Chest and front leg lines -->
+                    <path
+                      d="M155 223
+                         C160 272, 186 291, 238 298
+                         M286 300
+                         C288 338, 286 382, 276 430"
+                      fill="none"
+                      stroke="#111111"
+                      stroke-width="7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+
+                    <!-- Back leg inner lines -->
+                    <path
+                      d="M552 285
+                         C570 330, 604 358, 634 386
+                         C651 400, 656 414, 650 430
+                         M696 310
+                         C672 346, 666 388, 680 430"
+                      fill="none"
+                      stroke="#111111"
+                      stroke-width="7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+
+                    <!-- Tail outline -->
+                    <path
+                      d="M746 174
+                         C806 160, 842 112, 852 54
+                         C861 95, 844 153, 804 190
+                         C784 208, 761 219, 736 224"
+                      fill="none"
+                      stroke="#111111"
+                      stroke-width="7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+
+                    <!-- Neck and head outline -->
+                    <path
+                      d="M142 214
+                         C130 185, 127 145, 132 108
+                         C93 113, 56 109, 28 86
+                         C17 77, 18 65, 32 59
+                         C61 47, 86 36, 107 20
+                         C126 5, 152 3, 173 18
+                         C204 0, 243 13, 267 58
+                         C250 92, 238 126, 234 168
+                         C220 186, 210 198, 198 210"
+                      fill="none"
+                      stroke="#111111"
+                      stroke-width="7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+
+                    <!-- Ear outlines -->
+                    <path
+                      d="M158 58
+                         C190 32, 238 28, 267 58
+                         C250 92, 238 126, 234 168
+                         C190 156, 164 118, 158 58 Z"
+                      fill="none"
+                      stroke="#111111"
+                      stroke-width="7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+
+                    <path
+                      d="M120 52
+                         C91 63, 72 90, 58 122
+                         C86 116, 110 92, 132 61"
+                      fill="none"
+                      stroke="#111111"
+                      stroke-width="7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+
+                    <!-- Face details -->
+                    <circle cx="109" cy="72" r="8" fill="#111111"></circle>
+
+                    <path
+                      d="M31 60
+                         C18 63, 13 76, 24 87
+                         C36 96, 52 91, 58 80"
+                      fill="none"
+                      stroke="#111111"
+                      stroke-width="7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+
+                    <path
+                      d="M58 126
+                         C82 140, 111 139, 135 124"
+                      fill="none"
+                      stroke="#111111"
+                      stroke-width="5"
+                      stroke-linecap="round"></path>
+
+                    <!-- Paw toe lines -->
+                    <path
+                      d="M165 430 C166 418, 174 410, 184 430
+                         M190 430 C191 418, 199 410, 209 430
+                         M239 430 C240 418, 248 410, 258 430
+                         M263 430 C264 418, 272 410, 282 430
+                         M652 430 C653 418, 661 410, 671 430
+                         M676 430 C677 418, 685 410, 695 430
+                         M682 430 C683 418, 691 410, 701 430
+                         M707 430 C708 418, 716 410, 726 430"
+                      fill="none"
+                      stroke="#111111"
+                      stroke-width="4"
+                      stroke-linecap="round"></path>
                   </g>
                 </svg>
               </div>
@@ -1094,7 +1289,7 @@
         frontRightPaw: '#ff77b7',
         backLeftPaw: '#ff77b7',
         backRightPaw: '#ff77b7',
-        body: '#fdfdfd'
+        body: '#ffffff'
       }
     };
 
@@ -1102,6 +1297,7 @@
     const partBtns = document.querySelectorAll('.part-btn');
     const colorBtns = document.querySelectorAll('.color-btn');
     const patternBtns = document.querySelectorAll('.pattern-btn');
+
     const body = document.getElementById('body');
     const ears = document.getElementById('ears');
     const ears2 = document.getElementById('ears2');
@@ -1111,9 +1307,11 @@
     const backLeftPaw = document.getElementById('backLeftPaw');
     const backRightPaw = document.getElementById('backRightPaw');
     const dogGroup = document.getElementById('dogGroup');
+
     const sizeLabel = document.getElementById('sizeLabel');
     const partLabel = document.getElementById('partLabel');
     const patternLabel = document.getElementById('patternLabel');
+
     const selectedSizeInput = document.getElementById('selectedSizeInput');
     const selectedColorsInput = document.getElementById('selectedColorsInput');
     const selectedPartsInput = document.getElementById('selectedPartsInput');
@@ -1150,12 +1348,13 @@
       if (state.pattern === 'polka') body.setAttribute('fill', 'url(#polkaPattern)');
       if (state.pattern === 'stars') body.setAttribute('fill', 'url(#starsPattern)');
 
-      let scale = 0.84;
-      if (state.size === 'medium') scale = 0.96;
+      let scale = 0.92;
+      if (state.size === 'medium') scale = 1.0;
       if (state.size === 'large') scale = 1.08;
-      dogGroup.setAttribute('transform', `translate(110,60) scale(${scale})`);
+      dogGroup.setAttribute('transform', `translate(35,45) scale(${scale})`);
 
       sizeLabel.textContent = state.size.charAt(0).toUpperCase() + state.size.slice(1) + ' Dog';
+
       const prettyPart = state.part
         .replace('frontLeftPaw', 'Front Left Paw')
         .replace('frontRightPaw', 'Front Right Paw')
@@ -1164,6 +1363,7 @@
         .replace('ears', 'Ears')
         .replace('tail', 'Tail')
         .replace('body', 'Body');
+
       partLabel.textContent = 'Editing: ' + prettyPart;
 
       const prettyPatternMap = {
@@ -1174,6 +1374,7 @@
         polka: 'Polka Dots',
         stars: 'Stars'
       };
+
       patternLabel.textContent = 'Pattern: ' + prettyPatternMap[state.pattern];
       updateHiddenFields();
     }
@@ -1206,6 +1407,7 @@
     colorBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         const color = btn.dataset.color;
+
         if (state.part === 'ears') state.colors.ears = color;
         if (state.part === 'tail') state.colors.tail = color;
         if (state.part === 'frontLeftPaw') state.colors.frontLeftPaw = color;
@@ -1213,6 +1415,7 @@
         if (state.part === 'backLeftPaw') state.colors.backLeftPaw = color;
         if (state.part === 'backRightPaw') state.colors.backRightPaw = color;
         if (state.part === 'body') state.colors.body = color;
+
         selectedColorsInput.value = color;
         updatePreview();
       });
